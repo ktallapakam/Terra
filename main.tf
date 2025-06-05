@@ -7,3 +7,9 @@ resource "aws_instance" "TestInstance-01" {
     instance_type   = "t2.micro"
     subnet_id       = "subnet-04cc49f127f01874e"
 }
+
+resource "aws_s3_bucket" "terraformState" {
+    bucket = "terraformState"
+    region = "us-east-1"
+    
+}
