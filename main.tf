@@ -8,7 +8,7 @@ resource "aws_instance" "TestInstance-01" {
     subnet_id       = "subnet-04cc49f127f01874e"
 }
 
-resource "aws_s3_bucket" "terraformState" {
+resource "aws_s3_bucket" "terraformstate" {
     bucket = "terraformState"
     //region = "us-east-1"
     
