@@ -10,8 +10,8 @@ resource "aws_instance" "TestInstance-01" {
 
 terraform {
   backend "s3" {
-    bucket       = "example-bucket"
-    key          = "path/to/state"
+    bucket       = "terraformstate"
+    key          = "tallapakam/statefile"
     use_lockfile = true
     region       = "us-east-1"
   }
