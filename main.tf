@@ -14,6 +14,9 @@ resource "aws_s3_bucket" "tf_state" {
 }
 
 
+/*
+
+
 # --------------------------
 # Setup remote backend config
 # --------------------------
@@ -27,7 +30,6 @@ terraform {
   }
 }
 
-/*
 # DynamoDB table to hold the state lock
 resource "aws_dynamodb_table" "tf_locks" {
   name         = "terraform-locks"
