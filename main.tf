@@ -13,10 +13,6 @@ resource "aws_s3_bucket" "tf_state" {
   force_destroy = true
 }
 
-
-/*
-
-
 # --------------------------
 # Setup remote backend config
 # --------------------------
@@ -29,6 +25,11 @@ terraform {
     encrypt        = true
   }
 }
+
+/*
+
+
+
 
 # DynamoDB table to hold the state lock
 resource "aws_dynamodb_table" "tf_locks" {
