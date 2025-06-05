@@ -23,7 +23,7 @@ terraform {
     bucket         = "my-terraform-state-bucket-05062024"  # Same as the bucket above
     key            = "env/dev/terraform.tfstate"
     region         = "us-east-1"
-    use_lockfile   = "terraform-locks"
+    use_lockfile   = "s"
     encrypt        = true
   }
 }
