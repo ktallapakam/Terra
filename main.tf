@@ -9,7 +9,7 @@ resource "aws_instance" "TestInstance-01" {
 }
 
 resource "aws_s3_bucket" "terraformstate" {
-    bucket = "terraformState"
+    bucket = "terraformstate"
     //region = "us-east-1"
     
 }
