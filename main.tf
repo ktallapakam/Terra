@@ -2,11 +2,17 @@ provider "aws" {
   region = "us-east-1"
 }
 
+resource "aws_instance" "testServer-01" {
+    ami             = "ami-084568db4383264d4"
+    instance_type   = "t2.micro"
+    subnet_id       = "subnet-04cc49f127f01874e"
+}
+
 resource "aws_s3_bucket" "tf_state" {
   bucket = "05062024-terraform-state-bucket-123456"  # must be globally unique
   force_destroy = true
 }
-
+/*
 
 # DynamoDB table to hold the state lock
 resource "aws_dynamodb_table" "tf_locks" {
@@ -27,10 +33,6 @@ terraform {
     encrypt        = true
   }
 }
+ */
 
 
-resource "aws_instance" "testServer-01" {
-    ami             = "ami-084568db4383264d4"
-    instance_type   = "t2.micro"
-    subnet_id       = "subnet-04cc49f127f01874e"
-}
