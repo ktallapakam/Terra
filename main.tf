@@ -12,14 +12,7 @@ resource "aws_s3_bucket" "tf_state" {
   bucket = "05062024-terraform-state-bucket-123456"  # must be globally unique
   force_destroy = true
 }
-/*
 
-# DynamoDB table to hold the state lock
-resource "aws_dynamodb_table" "tf_locks" {
-  name         = "terraform-locks"
-  billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "LockID"
-}
 
 # --------------------------
 # Setup remote backend config
@@ -27,12 +20,21 @@ resource "aws_dynamodb_table" "tf_locks" {
 terraform {
   backend "s3" {
     bucket         = "my-terraform-state-bucket-05062024"  # Same as the bucket above
-    key            = "env/dev/terraform.tfstate"
+    key            = "backup/terraform.tfstate"
     region         = "us-east-1"
     use_lockfile   = true
     encrypt        = true
   }
 }
+
+/*
+# DynamoDB table to hold the state lock
+resource "aws_dynamodb_table" "tf_locks" {
+  name         = "terraform-locks"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "LockID"
+}
+
  */
 
 
