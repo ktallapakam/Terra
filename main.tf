@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "ap-southeast-2"
+  region = "us-east-1"
 }
 
 resource "aws_instance" "TestInstance-01" {
@@ -8,8 +8,12 @@ resource "aws_instance" "TestInstance-01" {
     subnet_id       = "subnet-04cc49f127f01874e"
 }
 
-resource "aws_s3_bucket" "terraformstate" {
-    bucket = "terraformstate"
-    //region = "us-east-1"
-    
+terraform {
+  backend "s3" {
+    bucket       = "example-bucket"
+    key          = "path/to/state"
+    use_lockfile = true
+    region       = "us-east-1"
+  }
 }
+
